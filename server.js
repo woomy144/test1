@@ -4649,7 +4649,7 @@ var maintainloop = (() => {
                     sockets.broadcast('Uh oh...');
                         break;
                      case 13: 
-                         choice = [[Class.elite_f, Class.palisade, Class.skimboss, Class.summoner, Class.elite_sprayer, Class.pal, Class.elite_trapper, Class.summonermk2, Class.rindeeyr_kswyvmexqcxx, Class.fallen_hybrid, Class.aquamarine, Class.trapefightee, Class.elite_sprayerer, Class.eliteererere, Class.elite_fofa], 2, 'a', 'nest']; 
+                         choice = [[Class.elite_f, Class.palisade, Class.skimboss, Class.summoner, Class.elite_sprayer, Class.pal, Class.elite_trapper, Class.summonermk2, Class.rindeeyr_kswyvmexqcxx, Class.fallen_hybrid, Class.aquamarine, Class.trapefightee, Class.elite_sprayerer, Class.eliteererere, Class.elite_fofa, Class.elite_funeis], 2, 'a', 'nest']; 
                      sockets.broadcast('theres too Many!');
                         break;
                     case 1: 
