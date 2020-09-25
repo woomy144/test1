@@ -837,7 +837,8 @@ const levelers = [
     1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
     11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
     21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-    31, 32, 33, 34, 35, 36, 38, 40, 42, 44,
+    31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+    41, 42, 43, 44, 45,
 ];
 class Skill {
     constructor(inital = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) { // Just skill stuff. 
@@ -1841,6 +1842,11 @@ class Entity {
                 this.upgrades.push({ class: e, level: c.TIER_3, index: e.index,});
             });
         }
+      if (set.UPGRADES_TIER_4 != null) { 
+            set.UPGRADES_TIER_4.forEach((e) => {
+                this.upgrades.push({ class: e, level: c.TIER_4, index: e.index,});
+            });
+        }
         if (set.SIZE != null) {
             this.SIZE = set.SIZE * this.squiggle;
             if (this.coreSize == null) { this.coreSize = this.SIZE; }
@@ -2237,8 +2243,12 @@ class Entity {
             break;
         }
         // Loop
-        const TAU = 2 * Math.PI
-        this.facing = (this.facing % TAU + TAU) % TAU;
+        while (this.facing < 0) {
+            this.facing += 2 * Math.PI;
+        }
+        while (this.facing > 2 * Math.PI) {
+            this.facing -= 2 * Math.PI;
+        }
         this.vfacing = util.angleDifference(oldFacing, this.facing) * roomSpeed;
     }
 
@@ -4576,17 +4586,75 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 6000 && ran.dice(16000 - timer)) {
+            if (timer > 60 && ran.dice(60 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
-                switch (ran.chooseChance(40, 1)) {
+                switch (ran.chooseChance(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 75,)) {
                     case 0: 
                         choice = [[Class.elite_destroyer], 2, 'a', 'nest'];
                         break;
                     case 1: 
                         choice = [[Class.palisade], 1, 'castle', 'norm']; 
                         sockets.broadcast('A strange trembling...');
+                        break;
+                     case 2: 
+                        choice = [[Class.skimboss], 1, 'castle', 'norm']; 
+                        sockets.broadcast('A strange trembling...');
+                        break;
+                     case 3: 
+                        choice = [[Class.summoner], 2, 'a', 'norm']; 
+                        sockets.broadcast('The squares seem to slightly hate you now...');
+                        break;
+                     case 4: 
+                        choice = [[Class.elite_sprayer], 1, 'a', 'nest'];
+                        break;
+                    case 5: 
+                        choice = [[Class.elite_gunner], 2, 'a', 'nest'];
+                        break;
+                    case 6: 
+                        choice = [[Class.elite_trapper], 1, 'a', 'nest'];
+                     sockets.broadcast('Traps ARE OP...');
+                        break;
+                    case 7: 
+                   
+                        choice = [[Class.summoner, Class.summonermk2,], 2, 'castle', 'norm']; 
+                        sockets.broadcast('Never has the phrase "Square Up" been more acurate...');
+                        break;
+                     case 8: 
+                        choice = [[Class.skimboss, Class.summoner, Class.summonermk2, Class.palisade, Class.elite_destroyer, Class.elite_gunner, Class.elite_sprayer, Class.elite_trapper, Class.rindeeyr_kswyvmexqcxx], 9, 'a', 'norm']; 
+                        sockets.broadcast('Some bosses are on their ways...');
+                        break;
+                    case 9: 
+                        choice = [[Class.sassafras, Class.fallen_hybrid], 2, 'a', 'norm']; 
+                        sockets.broadcast('All hail LORD SASSAFRAS!!!');
+                        sockets.broadcast('PS. I like crackers...')
+                    sockets.broadcast('I Really Like Em ')
+                     sockets.broadcast('And A Fallen Hybrid?')
+                        break;
+                    case 10: 
+                        choice = [[Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid, Class.fallen_hybrid], 50, 'a', 'nest']; 
+                        sockets.broadcast('They was Existing at a server');
+                    sockets.broadcast('but they started being op.');
+                    sockets.broadcast('So filly removed them...');
+                    sockets.broadcast('...Now, They Came For Revenge');
+                    sockets.broadcast('Souls Unite...');
+                        break;
+                    case 11: 
+                        choice = [[Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx,], 20, 'a', 'nest'];
+                    sockets.broadcast("A44%ss d%n'%d: y(± d( n(t hav% p%rm'ss'(n t( s%% th's.");
+                        break;
+                    case 12: 
+                        choice = [[Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx, Class.rindeeyr_kswyvmexqcxx,], 200, 'a', 'nest'];
+                    sockets.broadcast('Uh oh...');
+                        break;
+                     case 13: 
+                         choice = [[Class.elite_f, Class.palisade, Class.skimboss, Class.summoner, Class.elite_sprayer, Class.pal, Class.elite_trapper, Class.summonermk2, Class.rindeeyr_kswyvmexqcxx, Class.fallen_hybrid, Class.aquamarine, Class.trapefightee, Class.elite_sprayerer, Class.eliteererere, Class.elite_fofa], 2, 'a', 'nest']; 
+                     sockets.broadcast('theres too Many!');
+                        break;
+                    case 1: 
+                        choice = [[Class.visultima], 1, 'castle', 'norm']; 
+                        sockets.broadcast('КИТ ТЫ МАМУ МАВ МАВ А ТАТАТА МАВ МАУВ А БРАТА МАУВ МАУВ...');
                         break;
                 }
                 boss.prepareToSpawn(...choice);
@@ -4608,15 +4676,15 @@ var maintainloop = (() => {
     // The NPC function
     let makenpcs = (() => {
         // Make base protectors if needed.
-            /*let f = (loc, team) => { 
+            let f = (loc, team) => { 
                 let o = new Entity(loc);
-                    o.define(Class.baseProtector);
+                    o.define(Class.mothership);
                     o.team = -team;
                     o.color = [10, 11, 12, 15][team-1];
             };
             for (let i=1; i<5; i++) {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
-            }*/
+            }
         // Return the spawning function
         let bots = [];
         return () => {
@@ -4634,27 +4702,29 @@ var maintainloop = (() => {
             // Spawning
             spawnCrasher(census);
             spawnBosses(census);
-            /*/ Bots
+             bots
                 if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
-                    o.color = 17;
+                    o.color = 4;
                     o.define(Class.bot);
-                    o.define(Class.basic);
+                     let arrayOfClasses = [Class.machine, Class.builder, Class.bighter, Class.basic, Class.single, Class.managers, Class.double, Class.gunner, Class.buildergun, Class.auto5, Class.auto3, Class.mothershipmini, Class.cruiser, Class.autosmap, Class.builder, Class.battleship, Class.basic]//put as many classes as you want made by oblivion plain;
+                     let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                    o.define(newClass);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
-                    o.color = 17;
+                    o.color = 20;
                     bots.push(o);
                 }
                 // Remove dead ones
                 bots = bots.filter(e => { return !e.isDead(); });
                 // Slowly upgrade them
                 bots.forEach(o => {
-                    if (o.skill.level < 45) {
-                        o.skill.score += 35;
+                    if (o.skill.level < 60) {
+                        o.skill.score += 1000;
                         o.skill.maintain();
                     }
                 });
-            */
+            
         };
     })();
     // The big food function
@@ -4670,6 +4740,7 @@ var maintainloop = (() => {
                 case 3: a = Class.pentagon; break;
                 case 4: a = Class.bigPentagon; break;
                 case 5: a = Class.hugePentagon; break;
+                case 6: a = Class.enormPentagon; break;
                 default: throw('bad food level');
             }
             if (a !== {}) {
@@ -4791,7 +4862,7 @@ var maintainloop = (() => {
                 [3]: 0, // Penta
                 [4]: 0, // Beta
                 [5]: 0, // Alpha
-                [6]: 0,
+                [6]: 0, // Omega
                 tank: 0,
                 sum: 0,
             };
@@ -4802,7 +4873,7 @@ var maintainloop = (() => {
                 [3]: 0, // Penta
                 [4]: 0, // Beta
                 [5]: 0, // Alpha
-                [6]: 0,
+                [6]: 0, // Omega
                 sum: 0,
             };
             // Do the censusNest
@@ -4929,7 +5000,7 @@ let server = http.createServer((req, res) => {
   switch (pathname) {
     case '/':
       res.writeHead(200)
-      res.end(`<!DOCTYPE html><h3>Arras</h3><button onclick="location.href = 'http://arras.io/#host=' + location.host">Open</button>`)
+      res.end('<!DOCTYPE html><h3>Arraz</h3>')
     break
     case '/mockups.json':
       res.setHeader('Access-Control-Allow-Origin', '*')
