@@ -32,7 +32,7 @@ global.fps = "Unknown";
 var roomSpeed = c.gameSpeed;
 const room = {
     lastCycle: undefined,
-    cycleSpeed: 1000 / roomSpeed / 30,
+    cycleSpeed: 100 / roomSpeed / 30,
     width: c.WIDTH,
     height: c.HEIGHT,
     setup: c.ROOM_SETUP,
@@ -71,6 +71,7 @@ const room = {
     room.findType('bas2');
     room.findType('bas3');
     room.findType('bas4');
+    room.findType('bas5');
     room.findType('roid');
     room.findType('rock');
     room.nestFoodAmount = 1.5 * Math.sqrt(room.nest.length) / room.xgrid / room.ygrid;
