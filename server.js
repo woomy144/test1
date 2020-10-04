@@ -32,7 +32,7 @@ global.fps = "Unknown";
 var roomSpeed = c.gameSpeed;
 const room = {
     lastCycle: undefined,
-    cycleSpeed: 100 / roomSpeed / 30,
+    cycleSpeed: 1000 / roomSpeed / 30,
     width: c.WIDTH,
     height: c.HEIGHT,
     setup: c.ROOM_SETUP,
@@ -71,7 +71,6 @@ const room = {
     room.findType('bas2');
     room.findType('bas3');
     room.findType('bas4');
-    room.findType('bas5');
     room.findType('roid');
     room.findType('rock');
     room.nestFoodAmount = 1.5 * Math.sqrt(room.nest.length) / room.xgrid / room.ygrid;
@@ -2310,8 +2309,7 @@ class Entity {
                 (this.team !== -1 && room.isIn('bas1', loc)) ||
                 (this.team !== -2 && room.isIn('bas2', loc)) ||
                 (this.team !== -3 && room.isIn('bas3', loc)) ||
-                (this.team !== -4 && room.isIn('bas4', loc)) ||
-                (this.team !== -6 && room.isIn('bas5', loc))
+                (this.team !== -4 && room.isIn('bas4', loc))
             ) { this.kill(); }
         }
     }
@@ -4651,7 +4649,7 @@ var maintainloop = (() => {
                     sockets.broadcast('Uh oh...');
                         break;
                      case 13: 
-                         choice = [[Class.elite_f, Class.palisade, Class.skimboss, Class.summoner, Class.elite_sprayer, Class.pal, Class.elite_trapper, Class.summonermk2, Class.rindeeyr_kswyvmexqcxx, Class.fallen_hybrid, Class.aquamarine, Class.trapefightee, Class.elite_sprayerer, Class.eliteererere, Class.elite_fofa, Class.elite_funeis, Class.palisadees, Class.testerer, Class.skimbossу], 2, 'a', 'nest']; 
+                         choice = [[Class.elite_f, Class.palisade, Class.skimboss, Class.summoner, Class.elite_sprayer, Class.pal, Class.elite_trapper, Class.summonermk2, Class.rindeeyr_kswyvmexqcxx, Class.fallen_hybrid, Class.aquamarine, Class.trapefightee, Class.elite_sprayerer, Class.eliteererere, Class.elite_fofa, Class.elite_funeis, Class.palisadees, Class.testerer], 2, 'a', 'nest']; 
                      sockets.broadcast('theres too Many!');
                         break;
                     case 1: 
@@ -4680,7 +4678,7 @@ var maintainloop = (() => {
         // Make base protectors if needed.
             let f = (loc, team) => { 
                 let o = new Entity(loc);
-                    o.define(Class.destroyerDominator);
+                    o.define(Class.mothership);
                     o.team = -team;
                     o.color = [10, 11, 12, 15][team-1];
             };
