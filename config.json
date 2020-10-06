@@ -17,7 +17,7 @@
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    [ "roid", "norm", "norm", "norm", "roid", "norm", "norm", "norm", "roid" ],
+    [ "domx", "norm", "norm", "norm", "roid", "norm", "norm", "norm", "domx" ],
     [ "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ],
     [ "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ],
     [ "norm", "norm", "norm", "norm", "domx", "norm", "norm", "norm", "norm"  ],
@@ -25,7 +25,7 @@
      [ "norm", "norm", "norm", "norm", "domx", "norm", "norm", "norm", "norm" ],
      [ "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ],
      [ "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ],
-     [ "roid", "norm", "norm", "norm", "roid", "norm", "norm", "norm", "roid" ]
+     [ "domx", "norm", "norm", "norm", "roid", "norm", "norm", "norm", "domx" ]
   ],
   "X_GRID": 9,
   "Y_GRID": 9,
