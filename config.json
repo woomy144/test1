@@ -17,15 +17,15 @@
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    [ "domx", "norm", "norm", "norm", "roid", "norm", "norm", "norm", "domx" ],
+    [ "norm", "norm", "norm", "norm", "roid", "norm", "norm", "norm", "norm" ],
     [ "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ],
     [ "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ],
-    [ "norm", "norm", "norm", "norm", "domx", "norm", "norm", "norm", "norm"  ],
+    [ "norm", "norm", "norm", "norm", "domx", "gaussRing", "norm", "norm", "norm"  ],
      [ "roid", "norm", "norm", "domx", "nest", "domx", "norm", "norm", "roid" ],
      [ "norm", "norm", "norm", "norm", "domx", "norm", "norm", "norm", "norm" ],
      [ "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ],
      [ "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ],
-     [ "domx", "norm", "norm", "norm", "roid", "norm", "norm", "norm", "domx" ]
+     [ "norm", "norm", "norm", "norm", "roid", "norm", "norm", "norm", "norm" ]
   ],
   "X_GRID": 9,
   "Y_GRID": 9,
