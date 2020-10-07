@@ -4649,16 +4649,16 @@ var maintainloop = (() => {
                     sockets.broadcast('Uh oh...');
                         break;
                      case 13: 
-                         choice = [[Class.elite_f, Class.palisade, Class.skimboss, Class.summoner, Class.elite_sprayer, Class.pal, Class.elite_trapper, Class.summonermk2, Class.rindeeyr_kswyvmexqcxx, Class.fallen_hybrid, Class.aquamarine, Class.trapefightee, Class.elite_sprayerer, Class.eliteererere, Class.elite_fofa, Class.elite_funeis, Class.palisadees, Class.testerer], 2, 'a', 'nest']; 
+                         choice = [[Class.elite_f, Class.palisade, Class.skimboss, Class.summoner, Class.elite_sprayer, Class.pal, Class.elite_trapper, Class.summonermk2, Class.rindeeyr_kswyvmexqcxx, Class.fallen_hybrid, Class.aquamarine, Class.trapefightee, Class.elite_sprayerer, Class.eliteererere, Class.elite_fofa, Class.elite_funeis, Class.palisadees, Class.testerer, Class.TK1ey, Class.TK1, Class.PK1], 2, 'a', 'nest']; 
                      sockets.broadcast('theres too Many!');
                         break;
                     case 1: 
                         choice = [[Class.visultima], 1, 'castle', 'norm']; 
-                        sockets.broadcast('КИТ ТЫ МАМУ МАВ МАВ А ТАТАТА МАВ МАУВ А БРАТА МАУВ МАУВ...');
+                        sockets.broadcast('VISITE TTOO COM...');
                         break;
                 }
                 boss.prepareToSpawn(...choice);
-                setTimeout(boss.spawn, 3000);
+                setTimeout(boss.spawn, 1000);
                 // Set the timeout for the spawn functions
             } else if (!census.miniboss) timer++;
         };
@@ -4678,9 +4678,9 @@ var maintainloop = (() => {
         // Make base protectors if needed.
             let f = (loc, team) => { 
                 let o = new Entity(loc);
-                    o.define(Class.mothership);
+                    o.define(Class.gunnerdominator);
                     o.team = -team;
-                    o.color = [10, 11, 12, 15][team-1];
+                    o.color = [10, 11, 12, 15, 8][team-1];
             };
             for (let i=1; i<5; i++) {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
