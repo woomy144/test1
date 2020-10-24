@@ -4689,7 +4689,7 @@ var maintainloop = (() => {
         let bots = [];
         return () => {
             let census = {
-                crasher: 0,
+                crasher: 99,
                 miniboss: 0,
                 tank: 0,
             };    
@@ -4712,7 +4712,7 @@ var maintainloop = (() => {
                     o.define(newClass);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
-                    o.color = 20;
+                    o.color = 1;
                     bots.push(o);
                 }
                 // Remove dead ones
