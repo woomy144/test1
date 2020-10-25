@@ -35,22 +35,22 @@
   "KNOCKBACK_CONSTANT": 1,
   "ROOM_BOUND_FORCE": 0.01,
   "FOOD": [
-    0, 
-    0,
+    1, 
     1,
-    0,
-    0,
-    0,
-    0
+    1,
+    1,
+    1,
+    1,
+    1
   ],
   "FOOD_NEST": [
-    0, 
-    0,
+    1, 
     1,
-    0,
-    0,
-    0,
-    0
+    1,
+    1,
+    1,
+    1,
+    1
   ],
   "MAX_SKILL": 9,
   "SOFT_MAX_SKILL": 0.59,
@@ -64,7 +64,7 @@
   "SKILL_LEAK": 0,
   "STEALTH": 4,
   "MIN_SPEED": 0.001,
-  "FOOD_AMOUNT": 0, 
+  "FOOD_AMOUNT": 0.7, 
   "SKILL_BOOST": 3,
   "BOTS": 0,
   "GLASS_HEALTH_FACTOR": 2
